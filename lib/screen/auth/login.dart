@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_first_flutter_app/screen/navbar.dart';
 import 'package:my_first_flutter_app/services/auth_services.dart';
 import 'package:my_first_flutter_app/partials/color.dart';
 
@@ -14,6 +15,7 @@ class LoginScreen extends StatelessWidget {
       if (user != null) {
         // Login berhasil!
         print("Login Berhasil: ${user.email}");
+
       } else {
         // Login dibatalkan / gagal
         print("Login dibatalkan oleh user.");
@@ -23,6 +25,7 @@ class LoginScreen extends StatelessWidget {
       print("Error: ${e}");
     }
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +110,13 @@ class LoginScreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(6),
                   ),
                   child: ElevatedButton(
-                    onPressed: _handleGoogleSignIn,
+                    onPressed: () async {
+                      final user = await AuthService().signInWithGoogle();
+
+                      if (user != null) {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Navbar()));
+                      }
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xffffffff),
                     ),
