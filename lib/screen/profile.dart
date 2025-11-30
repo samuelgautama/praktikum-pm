@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_flutter_app/components/profile_widget/menu_list.dart';
 import 'package:my_first_flutter_app/partials/color.dart';
+import 'package:my_first_flutter_app/screen/item_list.dart';
 
 class ProfileScreen extends StatelessWidget{
   const ProfileScreen({super.key});
@@ -57,17 +58,17 @@ class ProfileScreen extends StatelessWidget{
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      child: Image.asset('assets/images/pp.png'),
+                      child: Image.asset('assets/images/pp.jpeg'),
                     ),
                     Text(
-                      'Timothy Manuel Chandra',
+                      'Samuel Gautama Manik',
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600
                       ),
                     ),
                     Text(
-                      'timothymanuel@student.usu.ac.id',
+                      'samuelgautama@student.usu.ac.id',
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
@@ -148,6 +149,15 @@ class ProfileScreen extends StatelessWidget{
                                 title: 'Histori Transaksi',
                                 image: 'assets/images/history.png'
                             ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>ItemListScreen()));
+                              },
+                              child: MenuList(
+                                  title: 'Daftar Item',
+                                  image: 'assets/images/history.png'
+                              )
+                            ),
                             const SizedBox(height: 10,),
                             MenuList(
                                 title: 'Tugas',
@@ -160,7 +170,7 @@ class ProfileScreen extends StatelessWidget{
                             ),
                             const SizedBox(height: 10,),
                             MenuList(
-                                title: 'Notifigkasi',
+                                title: 'Notifikasi',
                                 image: 'assets/images/assignment.png'
                             ),
                             const SizedBox(height: 10,),

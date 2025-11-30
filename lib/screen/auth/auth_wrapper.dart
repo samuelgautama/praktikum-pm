@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_first_flutter_app/screen/auth/login.dart';
 import 'package:my_first_flutter_app/screen/navbar.dart';
