@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:my_first_flutter_app/components/profile_widget/menu_list.dart';
 import 'package:my_first_flutter_app/partials/color.dart';
+import 'package:my_first_flutter_app/screen/auth/login.dart';
 import 'package:my_first_flutter_app/screen/item_list.dart';
+import 'package:my_first_flutter_app/services/auth_services.dart';
 
 class ProfileScreen extends StatelessWidget{
   const ProfileScreen({super.key});
@@ -194,10 +196,17 @@ class ProfileScreen extends StatelessWidget{
                                 image: 'assets/images/assignment.png'
                             ),
                             const SizedBox(height: 10,),
+                          InkWell(
+                            onTap: () async {
+                              final cred = AuthService().signOut();
+                              Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
+                            },
+                            child:
                             MenuList(
                                 title: 'Logout',
                                 image: 'assets/images/rank.png'
                             ),
+                          )
                           ],
                         ),
                       ),
