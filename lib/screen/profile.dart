@@ -58,7 +58,7 @@ class ProfileScreen extends StatelessWidget{
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(50),
                       ),
-                      child: Image.asset('assets/images/pp.jpeg'),
+                      child: Image.asset('assets/images/pp.png'),
                     ),
                     Text(
                       'Samuel Gautama Manik',
