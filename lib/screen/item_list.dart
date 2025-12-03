@@ -21,11 +21,17 @@ class _ItemListScreenState extends State<ItemListScreen> {
   // ====================================================================
   // LOGIKA CREATE (Menambah Data)
   // ====================================================================
-  void _showDialog() {
+  void _showDialog(Item? item) {
+    if(item != null) {
+      _nameController.text = item.name;
+      _pointController.text = item.point.toString();
+    } else {
+      _nameController.clear();
+      _pointController.clear();
+    }
     // PENTING: Reset/Bersihkan isi form setiap kali dialog dibuka.
     // Jika tidak di-clear, tulisan lama akan tetap muncul saat user membuka dialog lagi.
-    _nameController.clear();
-    _pointController.clear();
+
 
     showDialog(
         context: context,
